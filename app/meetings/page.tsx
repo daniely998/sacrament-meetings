@@ -3,7 +3,7 @@ import MeetingCard from "@/components/MeetingCard";
 import { SacramentMeeting } from "@/lib/types";
 
 export default async function MeetingsListPage() {
-  const res = await fetch("/api/meetings", {
+  const res = await fetch("/meetings", {
     cache: "no-store",
   });
 
