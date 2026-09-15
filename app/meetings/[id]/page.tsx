@@ -9,7 +9,7 @@ export default async function MeetingDetailPage({ params }: MeetingPageProps) {
   const { id } = await params;
 
   const res = await fetch(
-    `${process.env.BASE_URL}/api/meetings/${id}`,
+    `${process.env.VERCEL_URL}/api/meetings/${id}`,
     { cache: "no-store" }
   );
 

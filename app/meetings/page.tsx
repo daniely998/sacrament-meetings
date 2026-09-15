@@ -3,7 +3,7 @@ import MeetingCard from "@/components/MeetingCard";
 import { SacramentMeeting } from "@/lib/types";
 
 export default async function MeetingsListPage() {
-  const res = await fetch(`${process.env.BASE_URL}/api/meetings`, {
+  const res = await fetch(`${process.env.VERCEL_URL}/api/meetings`, {
     cache: "no-store",
   });
 
