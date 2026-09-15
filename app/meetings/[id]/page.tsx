@@ -8,10 +8,13 @@ interface MeetingPageProps {
 export default async function MeetingDetailPage({ params }: MeetingPageProps) {
   const { id } = await params;
 
-  const res = await fetch(
-    `${process.env.BASE_URL}/meetings/${id}`,
-    { cache: "no-store" }
-  );
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
+
+  const res = await fetch(`${baseUrl}/api/meetings/${id}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch meeting");

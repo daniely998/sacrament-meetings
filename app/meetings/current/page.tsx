@@ -10,9 +10,14 @@ function getTodayId(): string {
 export default async function CurrentMeetingPage() {
   const todayId = getTodayId();
 
-  const res = await fetch(`${process.env.BASE_URL}/meetings`, {
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
+
+  const res = await fetch(`${baseUrl}/api/meetings`, {
     cache: "no-store",
   });
+  
   if (!res.ok) throw new Error("Failed to fetch meetings");
 
   const meetings: SacramentMeeting[] = await res.json();
