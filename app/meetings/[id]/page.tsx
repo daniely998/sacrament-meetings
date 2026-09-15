@@ -9,7 +9,7 @@ export default async function MeetingDetailPage({ params }: MeetingPageProps) {
   const { id } = await params;
 
   const res = await fetch(
-    `/meetings/${id}`,
+    `${process.env.BASE_URL}/meetings/${id}`,
     { cache: "no-store" }
   );
 

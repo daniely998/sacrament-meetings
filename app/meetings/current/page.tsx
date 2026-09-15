@@ -10,7 +10,7 @@ function getTodayId(): string {
 export default async function CurrentMeetingPage() {
   const todayId = getTodayId();
 
-  const res = await fetch("/meetings", {
+  const res = await fetch(`${process.env.BASE_URL}/meetings`, {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch meetings");
