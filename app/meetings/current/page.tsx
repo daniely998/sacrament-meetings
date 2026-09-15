@@ -10,7 +10,7 @@ function getTodayId(): string {
 export default async function CurrentMeetingPage() {
   const todayId = getTodayId();
 
-  const res = await fetch(`${process.env.VERCEL_URL}/api/meetings`, {
+  const res = await fetch("/api/meetings", {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch meetings");
