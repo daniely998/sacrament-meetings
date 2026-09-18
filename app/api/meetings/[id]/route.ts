@@ -16,7 +16,7 @@ export async function GET(
     );
   }
 
-  const meeting = getMeetingById(id);
+  const meeting = await getMeetingById(id);
 
   if (!meeting) {
     return NextResponse.json(
