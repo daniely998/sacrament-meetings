@@ -1,4 +1,5 @@
 import { SacramentMeeting, SpeakerItem } from "../lib/types";
+import Link from "next/link";
 
 export default function MeetingDetail({ meeting }: { meeting: SacramentMeeting }) {
     return (
@@ -47,6 +48,12 @@ export default function MeetingDetail({ meeting }: { meeting: SacramentMeeting }
             </section>
             <p>Closing Hymn: #{meeting.closingHymn.number} {meeting.closingHymn.title}</p>
             <p>Closing Prayer: {meeting.closingPrayer}</p>
+            <Link
+                href={`/meetings/${meeting.id}/edit`}
+                className="mt-4 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-600"
+            >
+            Edit
+            </Link>
 
         </article>
     );
